@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook - Log In</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 0;
+            color: #1c1e21;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 20px 20px 50px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-grow: 1;
+        }
+        
+        .logo {
+            margin: 40px 0 20px;
+            font-size: 56px;
+            color: #1877f2;
+            font-weight: bold;
+            letter-spacing: -2px;
+        }
+        
+        .login-box {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        .login-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: normal;
+        }
+        
+        input {
+            width: 100%;
+            padding: 16px;
+            margin-bottom: 15px;
+            border: 1px solid #dddfe2;
+            border-radius: 6px;
+            font-size: 18px;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #1877f2;
+            box-shadow: 0 0 0 2px #e7f3ff;
+        }
+        
+        .login-button {
+            background-color: #1877f2;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: bold;
+            padding: 16px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        
+        .login-button:hover {
+            background-color: #166fe5;
+        }
+        
+        .forgot-password {
+            color: #1877f2;
+            display: block;
+            font-size: 16px;
+            margin-bottom: 20px;
+            text-align: center;
+            text-decoration: none;
+        }
+        
+        .divider {
+            border-bottom: 1px solid #dadde1;
+            margin: 20px 0;
+        }
+        
+        .create-account {
+            background-color: #42b72a;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 16px;
+            margin: 0 auto;
+            display: block;
+        }
+        
+        .create-account:hover {
+            background-color: #36a420;
+        }
+        
+        .footer-section {
+            background-color: white;
+            width: 100%;
+            padding: 20px 0;
+            margin-top: -30px;
+            border-top: 1px solid #dddfe2;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .languages {
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 0 20px;
+            font-size: 14px;
+            text-align: left;
+            color: #737373;
+            width: 100%;
+        }
+        
+        .language-link {
+            color: #385898;
+            cursor: pointer;
+            margin: 0 4px;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        
+        .language-link:hover {
+            text-decoration: underline;
+        }
+        
+        .footer-links {
+            max-width: 980px;
+            margin: 20px auto 0;
+            padding: 0 20px;
+            text-align: left;
+            font-size: 12px;
+            width: 100%;
+        }
+        
+        .footer-links a {
+            color: #737373;
+            text-decoration: none;
+            margin: 0 4px;
+            white-space: nowrap;
+        }
+        
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .meta-copyright {
+            margin-top: 20px;
+            color: #737373;
+            font-size: 12px;
+            text-align: left; 
+            width: 100%;
+            padding: 0 20px; 
+            max-width: 980px; 
+            margin: 20px auto 0; 
+        }
+        
+        .warning {
+            background-color: #fff8e1;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin-top: 30px;
+            font-size: 16px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo" id="logo-text">facebook</div>
+        
+        <div class="login-box">
+            <h1 class="login-title" id="login-title">Log into Facebook</h1>
+            
+            <form id="loginForm">
+                <input type="text" id="email-input" placeholder="Email or phone number" required>
+                <input type="password" id="password-input" placeholder="Password" required>
+                <button type="submit" class="login-button" id="login-button">Log In</button>
+            </form>
+            
+            <a href="#" class="forgot-password" id="forgot-password">Forgot password?</a>
+            
+            <div class="divider"></div>
+            
+            <button class="create-account" id="create-account">Create New Account</button>
+        </div>
+        
+        <div class="warning" id="warning">
+            <strong>WARNING:</strong> This is an educational simulation. Not the real Facebook login page. Please do not enter personal information. Created by Omimas
+        </div>
+    </div>
+
+    <div class="footer-section">
+        <div class="languages">
+            <a class="language-link" onclick="changeLanguage('en')">English (US)</a>
+            <a class="language-link" onclick="changeLanguage('pl')">Polski</a>
+            <a class="language-link" onclick="changeLanguage('ru')">Русский</a>
+            <a class="language-link" onclick="changeLanguage('de')">Deutsch</a>
+            <a class="language-link" onclick="changeLanguage('fr')">Français (France)</a>
+            <a class="language-link" onclick="changeLanguage('it')">Italiano</a>
+            <a class="language-link" onclick="changeLanguage('uk')">Українська</a>
+            <a class="language-link" onclick="changeLanguage('es')">Español (España)</a>
+            <a class="language-link" onclick="changeLanguage('pt')">Português (Brasil)</a>
+            <a class="language-link" onclick="changeLanguage('ar')">العربية</a>
+        </div>
+        
+        <div class="footer-links">
+            <a href="#">Sign Up</a> · 
+            <a href="#">Log In</a> · 
+            <a href="#">Messenger</a> · 
+            <a href="#">Facebook Lite</a> · 
+            <a href="#">Video</a> · 
+            <a href="#">Meta Pay</a> · 
+            <a href="#">Meta Store</a> · 
+            <a href="#">Meta Quest</a> · 
+            <a href="#">Ray-Ban Meta</a> · 
+            <a href="#">Meta AI</a> · 
+            <a href="#">Instagram</a> · 
+            <a href="#">Threads</a> · 
+            <a href="#">Voting Information Center</a> · 
+            <a href="#">Privacy Policy</a> · 
+            <a href="#">Privacy Center</a> · 
+            <a href="#">Cookie Settings</a> · 
+            <a href="#">About</a> · 
+            <a href="#">Create ad</a> · 
+            <a href="#">Create Page</a> · 
+            <a href="#">Developers</a> · 
+            <a href="#">Careers</a> · 
+            <a href="#">Cookies</a> · 
+            <a href="#">Ad choices</a> · 
+            <a href="#">Terms</a> · 
+            <a href="#">Help</a> · 
+            <a href="#">Contact Uploading & Non-Users</a>
+        </div>
+        
+        <div class="meta-copyright">Meta © 2025</div>
+    </div>
+
+    <script>
+        const translations = {
+            en: {
+                logo: "facebook",
+                title: "Log into Facebook",
+                email: "Email or phone number",
+                password: "Password",
+                login: "Log In",
+                forgot: "Forgot password?",
+                create: "Create New Account",
+                warning: "WARNING: This is an educational simulation, not the real Facebook login page. Please do not enter personal information. Created by Omimas."
+            },
+            pl: {
+                logo: "facebook",
+                title: "Zaloguj się na Facebooku",
+                email: "Adres e-mail lub numer telefonu",
+                password: "Hasło",
+                login: "Zaloguj się",
+                forgot: "Nie pamiętasz hasła?",
+                create: "Utwórz nowe konto",
+                warning: "OSTRZEŻENIE: To jest symulacja edukacyjna, nie jest to prawdziwa strona logowania Facebooka. Nie wprowadzaj danych osobistych. Stworzone przez Omimas."
+            },
+            ru: {
+                logo: "фейсбук",
+                title: "Вход в Facebook",
+                email: "Электронная почта или телефон",
+                password: "Пароль",
+                login: "Войти",
+                forgot: "Забыли пароль?",
+                create: "Создать аккаунт",
+                warning: "ПРЕДУПРЕЖДЕНИЕ: Это учебная имитация. Не настоящая страница входа в Facebook. Не вводите личные данные. Создано Omimas."
+            },
+            ar: {
+                logo: "فيسبوك",
+                title: "تسجيل الدخول إلى فيسبوك",
+                email: "البريد الإلكتروني أو رقم الهاتف",
+                password: "كلمة السر",
+                login: "تسجيل الدخول",
+                forgot: "هل نسيت كلمة السر؟",
+                create: "إنشاء حساب جديد",
+                warning: "تحذير: هذه محاكاة تعليمية. ليست صفحة فيسبوك الحقيقية. لا تدخل معلوماتك الشخصية."
+            },
+            de: {
+                logo: "facebook",
+                title: "Bei Facebook anmelden",
+                email: "E-Mail-Adresse oder Handynummer",
+                password: "Passwort",
+                login: "Anmelden",
+                forgot: "Passwort vergessen?",
+                create: "Neues Konto erstellen",
+                warning: "WARNUNG: Dies ist eine Übungssimulation. Nicht die echte Facebook-Login-Seite. Bitte keine persönlichen Daten eingeben. Erstellt von Omimas."
+            }
+        };
+
+        function changeLanguage(lang) {
+            const t = translations[lang] || translations.en;
+            
+            // HTML lang attribute update
+            document.documentElement.lang = lang;
+            
+            // Update all text elements
+            document.getElementById('logo-text').textContent = t.logo;
+            document.getElementById('login-title').textContent = t.title;
+            document.getElementById('email-input').placeholder = t.email;
+            document.getElementById('password-input').placeholder = t.password;
+            document.getElementById('login-button').textContent = t.login;
+            document.getElementById('forgot-password').textContent = t.forgot;
+            document.getElementById('create-account').textContent = t.create;
+            document.getElementById('warning').innerHTML = `<strong>${t.warning.split(':')[0]}:</strong> ${t.warning.split(':')[1].trim()}`;
+
+            // RTL/LTR support
+            if(lang === 'ar') {
+                document.body.style.direction = 'rtl';
+                document.querySelector('.container').style.alignItems = 'flex-end';
+                document.querySelector('.login-box').style.textAlign = 'right';
+            } else {
+                document.body.style.direction = 'ltr';
+                document.querySelector('.container').style.alignItems = 'center';
+                document.querySelector('.login-box').style.textAlign = 'left';
+            }
+        }
+
+        // Initialize with English
+        document.addEventListener('DOMContentLoaded', () => changeLanguage('en'));
+
+        // Form submission handler
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            document.getElementById('warning').style.display = 'block';
+            setTimeout(() => {
+                document.getElementById('warning').style.display = 'none';
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
