@@ -30,7 +30,32 @@ Easily switch between supported languages:
 
 ### ⌨️ Form Interaction
 Experience the simulated login flow:
-```diff
 + Try entering test credentials:
   - Email: test@example.com
   - Password: demo123
+
+
+# Upcoming Updates (In Progress)
+
+## HTML Structure:
+
+- **Authentication Form**: The form contains two fields where the device ID and token information can be entered. The user can enter these details to perform authentication.
+
+- **Success and Error Messages**: A green message is displayed when authentication is successful. A red error message appears if the user enters incorrect information.
+
+## JavaScript Functionality:
+
+- **Authentication**: Upon form submission, the entered device ID and token are verified. If the authentication is successful, the device's data is securely transmitted.
+
+- **Data Security**: If the user attempts to send unencrypted data, a warning message will be shown. Data is securely transmitted using AES encryption.
+
+- **CryptoJS Library**: The CryptoJS library is used for encryption purposes.
+
+## User Interaction:
+
+- When the correct device ID and authentication key are entered, the authentication is successful, and the data transmission from the device is initiated securely.
+
+- A security warning is displayed if unencrypted data is attempted to be sent.
+
+- Using AES encryption, the data from the device is encrypted and transmitted securely.
+
